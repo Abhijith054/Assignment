@@ -1,0 +1,37 @@
+{
+  "input_rows": 73,
+  "valid_rows": 59,
+  "invalid_rows": 14,
+  "duplicate_id_groups": 2,
+  "duplicate_id_rows_involved": 4,
+  "duplicate_id_rows_excluded": 2,
+  "likely_duplicate_groups": 1,
+  "likely_duplicate_rows_involved": 2,
+  "likely_duplicate_rows_excluded": 1,
+  "revenue_policy": "total_revenue = sum of amount_clean over VALID rows with status 'paid'. Duplicates are invalid: the first clean row of a repeated transaction ID is kept and later repeats are invalid; among likely duplicates (same customer, amount, date, order; refunds kept separate) one row is kept, preferring 'paid'. Refunds are valid but reported separately and subtracted in net_revenue.",
+  "revenue_rows": 37,
+  "total_revenue": "89122.00",
+  "refunds_total": "1200.00",
+  "net_revenue": "87922.00",
+  "valid_rows_by_status": {
+    "paid": 37,
+    "pending": 10,
+    "cancelled": 11,
+    "refund": 1
+  },
+  "invalid_rows_by_issue": {
+    "missing_amount": 5,
+    "negative_amount_not_refund": 2,
+    "duplicate_transaction_id": 2,
+    "zero_amount": 1,
+    "invalid_amount": 1,
+    "invalid_date": 1,
+    "missing_customer_name": 1,
+    "likely_duplicate_transaction": 1
+  },
+  "reconciliation": {
+    "valid_plus_invalid_equals_input": true,
+    "cleaned_csv_rows_equal_input": true,
+    "revenue_rows_equal_valid_paid_rows": true
+  }
+}
